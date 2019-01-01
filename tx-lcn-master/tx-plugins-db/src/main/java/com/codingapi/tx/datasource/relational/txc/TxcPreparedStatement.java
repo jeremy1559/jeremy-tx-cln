@@ -32,12 +32,13 @@ import java.util.List;
  * [类描述]
  *
  * @author caican
- * @date 17/11/28
- * @title [confluence页面的title]
+ *  17/11/28
+ *  [confluence页面的title]
  */
 public class TxcPreparedStatement extends TxcStatement implements PreparedStatement {
 
-    private static final Logger logger = LoggerFactory.getLogger(TxcPreparedStatement.class);
+    @SuppressWarnings("unused")
+	private static final Logger logger = LoggerFactory.getLogger(TxcPreparedStatement.class);
 
     public TxcPreparedStatement(PreparedStatement localPreparedStatement, AbstractTxcConnection abstractTxcConnection,
                                 String sql) {
@@ -418,7 +419,8 @@ public class TxcPreparedStatement extends TxcStatement implements PreparedStatem
         ((PreparedStatement) this.statement).setURL(paramInt, paramURL);
     }
 
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public void setUnicodeStream(int paramInt1, InputStream paramInputStream, int paramInt2) throws SQLException {
         addParam(paramInt1, paramInputStream, paramInt2);
         ((PreparedStatement) this.statement).setUnicodeStream(paramInt1, paramInputStream, paramInt2);

@@ -1,11 +1,5 @@
 package com.codingapi.tx.datasource.relational.txc;
 
-import com.codingapi.tx.aop.bean.TxTransactionLocal;
-import com.lorne.core.framework.utils.config.ConfigUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.util.StringUtils;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,11 +7,17 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.util.StringUtils;
+
+import com.codingapi.tx.aop.bean.TxTransactionLocal;
+
 /**
  * [类描述]
  *
  * @author caican
- * @date 17/12/23
+ *  17/12/23
  */
 public class TableMetaUtils {
 
@@ -27,7 +27,8 @@ public class TableMetaUtils {
             new ConcurrentHashMap<>();
     //TODO 定期让缓存失效
 
-    private static String dbType;
+    @SuppressWarnings("unused")
+	private static String dbType;
 
 
     public static TableMetaInfo getTableMetaInfo(Connection connection, String tableName) {

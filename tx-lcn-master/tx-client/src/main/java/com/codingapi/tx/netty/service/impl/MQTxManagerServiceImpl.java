@@ -1,7 +1,9 @@
 package com.codingapi.tx.netty.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.alibaba.fastjson.JSONObject;
-import com.codingapi.tx.aop.bean.TxCompensateLocal;
 import com.codingapi.tx.aop.bean.TxTransactionInfo;
 import com.codingapi.tx.compensate.model.CompensateInfo;
 import com.codingapi.tx.compensate.service.CompensateService;
@@ -14,8 +16,6 @@ import com.codingapi.tx.model.TxGroup;
 import com.codingapi.tx.netty.service.MQTxManagerService;
 import com.codingapi.tx.netty.service.TxManagerHttpRequestHelper;
 import com.lorne.core.framework.utils.encode.Base64Utils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 /**
  * Created by lorne on 2017/6/30.
@@ -73,7 +73,8 @@ public class MQTxManagerServiceImpl implements MQTxManagerService {
     }
 
 
-    @Override
+    @SuppressWarnings("unused")
+	@Override
     public void uploadModelInfo() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("m", modelNameService.getModelName());

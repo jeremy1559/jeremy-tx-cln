@@ -17,6 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * create by lorne on 2017/8/22
  */
 
+@SuppressWarnings("rawtypes")
 public abstract class AbstractResourceProxy<C,T extends ILCNResource> implements ILCNTransactionControl {
 
 

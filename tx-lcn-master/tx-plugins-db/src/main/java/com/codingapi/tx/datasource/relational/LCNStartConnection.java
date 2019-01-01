@@ -25,7 +25,8 @@ public class LCNStartConnection extends AbstractTransactionThread implements LCN
 
     private Connection connection;
 
-    private ICallClose<ILCNResource> subNowCount;
+    @SuppressWarnings("rawtypes")
+	private ICallClose<ILCNResource> subNowCount;
 
     private String groupId;
 
@@ -40,7 +41,8 @@ public class LCNStartConnection extends AbstractTransactionThread implements LCN
     private ThreadLocal<Boolean> isClose = new ThreadLocal<>();
 
 
-    public LCNStartConnection(Connection connection, ICallClose<ILCNResource> subNowCount) {
+    @SuppressWarnings("rawtypes")
+	public LCNStartConnection(Connection connection, ICallClose<ILCNResource> subNowCount) {
         this.connection = connection;
         this.subNowCount = subNowCount;
 

@@ -8,8 +8,8 @@ import java.util.List;
 
 /**
  * @author jsy.
- * @title
- * @time 17/12/22.
+ * 
+ *  17/12/22.
  */
 public class DeleteParser extends AbstractParser<MySqlDeleteStatement> {
     private static DeleteParser instance = null;
@@ -25,7 +25,8 @@ public class DeleteParser extends AbstractParser<MySqlDeleteStatement> {
         return instance;
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     protected List<Object> getWhereParams(List<Object> sqlParamsList, MySqlDeleteStatement parseSqlStatement) {
         if (CollectionUtils.isNotEmpty(sqlParamsList)) {
             return sqlParamsList;

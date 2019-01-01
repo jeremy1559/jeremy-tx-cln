@@ -126,7 +126,8 @@ public class TxManagerSenderServiceImpl implements TxManagerSenderService {
             for (final TxInfo txInfo : txGroup.getList()) {
                 if (txInfo.getIsGroup() == 0) {
                     countDownLatchHelper.addExecute(new IExecute<Boolean>() {
-                        @Override
+                        @SuppressWarnings("rawtypes")
+						@Override
                         public Boolean execute() {
                             if(txInfo.getChannel()==null){
                                 return false;
@@ -225,7 +226,8 @@ public class TxManagerSenderServiceImpl implements TxManagerSenderService {
         return sendMsg(model, newCmd.toJSONString(), configReader.getRedisSaveMaxTime());
     }
 
-    @Override
+    @SuppressWarnings("rawtypes")
+	@Override
     public String sendMsg(final String model,final String msg, int delay) {
         JSONObject jsonObject = JSON.parseObject(msg);
         String key = jsonObject.getString("k");
@@ -234,7 +236,8 @@ public class TxManagerSenderServiceImpl implements TxManagerSenderService {
         final Task task = ConditionUtils.getInstance().createTask(key);
 
         threadPool.execute(new Runnable() {
-            @Override
+            @SuppressWarnings("static-access")
+			@Override
             public void run() {
                 while (!task.isAwait() && !Thread.currentThread().interrupted()) {
                     try {
@@ -272,7 +275,8 @@ public class TxManagerSenderServiceImpl implements TxManagerSenderService {
 
     private void threadAwaitSend(final Task task, final TxInfo txInfo, final String msg){
         threadPool.execute(new Runnable() {
-            @Override
+            @SuppressWarnings("static-access")
+			@Override
             public void run() {
                 while (!task.isAwait() && !Thread.currentThread().interrupted()) {
                     try {
@@ -299,7 +303,8 @@ public class TxManagerSenderServiceImpl implements TxManagerSenderService {
     }
 
 
-    private ScheduledFuture schedule(final String key, int delayTime) {
+    @SuppressWarnings("rawtypes")
+	private ScheduledFuture schedule(final String key, int delayTime) {
         ScheduledFuture future = executorService.schedule(new Runnable() {
             @Override
             public void run() {

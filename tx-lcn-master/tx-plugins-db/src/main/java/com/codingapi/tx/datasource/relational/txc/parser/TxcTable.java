@@ -12,7 +12,7 @@ public class TxcTable {
     public String tableName;
     public String alias;
 
-    private List<TxcLine> line = new ArrayList();
+    private List<TxcLine> line = new ArrayList<TxcLine>();
 
 
     @Override

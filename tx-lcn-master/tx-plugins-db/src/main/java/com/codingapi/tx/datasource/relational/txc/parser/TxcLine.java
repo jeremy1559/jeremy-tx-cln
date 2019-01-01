@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class TxcLine {
 
-    private List<TxcField> fields = new ArrayList();
+    private List<TxcField> fields = new ArrayList<TxcField>();
 
     // DiffUtils 比对时忽略此字段
     @JsonIgnore

@@ -10,7 +10,8 @@ import java.util.List;
  * @author caisirius
  */
 public class TxcRuntimeContext {
-    private static final Logger logger = LoggerFactory.getLogger(TxcRuntimeContext.class);
+    @SuppressWarnings("unused")
+	private static final Logger logger = LoggerFactory.getLogger(TxcRuntimeContext.class);
 
     /**
      * 事务组Id 对应于txc的 xid
@@ -23,7 +24,7 @@ public class TxcRuntimeContext {
     /**
      * 提交信息
      */
-    private List<CommitInfo> info = new ArrayList();
+    private List<CommitInfo> info = new ArrayList<CommitInfo>();
     
     public int status;
     /**

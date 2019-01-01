@@ -21,20 +21,20 @@ public @interface TxTransaction {
 
     /**
      * 回滚异常
-     * @return
+     * 
      */
     Class<? extends Throwable>[] rollbackFor() default {};
 
 
     /**
      * 不回滚异常
-     * @return
+     * 
      */
     Class<? extends Throwable>[] noRollbackFor() default {};
 
     /**
      * 事务模式 仅在事务发起方配置有效
-     * @return
+     * 
      */
     TxTransactionMode mode() default TxTransactionMode.TX_MODE_LCN;
 

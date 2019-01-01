@@ -7,10 +7,12 @@ import java.io.Serializable;
  */
 public class TransactionInvocation  implements Serializable{
 
-    /**
+
+	private static final long serialVersionUID = 3216400759773565468L;
+	/**
      * 事务执行器
      */
-    private Class targetClazz;
+    private Class<?> targetClazz;
     /**
      * 方法
      */
@@ -23,7 +25,7 @@ public class TransactionInvocation  implements Serializable{
     /**
      * 参数类型
      */
-    private Class[] parameterTypes;
+    private Class<?>[] parameterTypes;
 
     /**
      * 方法字符串
@@ -33,7 +35,7 @@ public class TransactionInvocation  implements Serializable{
     public TransactionInvocation() {
     }
 
-    public TransactionInvocation(Class targetClazz, String method, String methodStr, Object[] argumentValues, Class[] parameterTypes) {
+    public TransactionInvocation(Class<?> targetClazz, String method, String methodStr, Object[] argumentValues, Class<?>[] parameterTypes) {
         this.targetClazz = targetClazz;
         this.method = method;
         this.methodStr = methodStr;
@@ -49,11 +51,11 @@ public class TransactionInvocation  implements Serializable{
         this.methodStr = methodStr;
     }
 
-    public Class getTargetClazz() {
+    public Class<?> getTargetClazz() {
         return targetClazz;
     }
 
-    public void setTargetClazz(Class targetClazz) {
+    public void setTargetClazz(Class<?> targetClazz) {
         this.targetClazz = targetClazz;
     }
 
@@ -73,11 +75,11 @@ public class TransactionInvocation  implements Serializable{
         this.argumentValues = argumentValues;
     }
 
-    public Class[] getParameterTypes() {
+    public Class<?>[] getParameterTypes() {
         return parameterTypes;
     }
 
-    public void setParameterTypes(Class[] parameterTypes) {
+    public void setParameterTypes(Class<?>[] parameterTypes) {
         this.parameterTypes = parameterTypes;
     }
 }

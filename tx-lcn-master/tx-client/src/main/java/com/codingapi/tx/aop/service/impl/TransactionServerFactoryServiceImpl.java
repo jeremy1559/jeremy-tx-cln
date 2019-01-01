@@ -35,7 +35,8 @@ public class TransactionServerFactoryServiceImpl implements TransactionServerFac
     @Autowired
     private TransactionServer txRunningNoTransactionServer;
 
-    @Autowired
+    @SuppressWarnings("unused")
+	@Autowired
     private NettyService nettyService;
 
     @Autowired

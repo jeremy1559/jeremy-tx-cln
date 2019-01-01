@@ -36,7 +36,8 @@ public class LCNDBConnection extends AbstractTransactionThread implements LCNCon
 
     private DataSourceService dataSourceService;
 
-    private ICallClose<ILCNResource> runnable;
+    @SuppressWarnings("rawtypes")
+	private ICallClose<ILCNResource> runnable;
 
     private int maxOutTime;
 
@@ -47,7 +48,8 @@ public class LCNDBConnection extends AbstractTransactionThread implements LCNCon
     private boolean readOnly = false;
 
 
-    public LCNDBConnection(Connection connection, DataSourceService dataSourceService, ICallClose<ILCNResource> runnable) {
+    @SuppressWarnings("rawtypes")
+	public LCNDBConnection(Connection connection, DataSourceService dataSourceService, ICallClose<ILCNResource> runnable) {
         logger.debug("init lcn connection ! ");
         this.connection = connection;
         this.runnable = runnable;

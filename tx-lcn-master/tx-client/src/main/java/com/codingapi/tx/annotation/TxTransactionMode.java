@@ -14,7 +14,8 @@ public enum TxTransactionMode {
     TX_MODE_TXC("TXC 模式,未提交读(READ UNCOMMITTED)");
 
 
-    private String description;
+    @SuppressWarnings("unused")
+	private String description;
 
     TxTransactionMode(String description) {
         this.description = description;

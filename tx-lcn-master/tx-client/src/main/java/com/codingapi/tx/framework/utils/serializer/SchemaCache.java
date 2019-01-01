@@ -40,7 +40,8 @@ public class SchemaCache {
         .maximumSize(1024).expireAfterWrite(1, TimeUnit.HOURS)
         .build();
 
-    private Schema<?> get(final Class<?> cls, Cache<Class<?>, Schema<?>> cache) {
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	private Schema<?> get(final Class<?> cls, Cache<Class<?>, Schema<?>> cache) {
         try {
             return cache.get(cls, new Callable() {
                 @Override

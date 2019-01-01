@@ -73,7 +73,8 @@ public class SocketManager {
         this.delay = delay;
     }
 
-    private void sleepSend(Task task, Request request) {
+    @SuppressWarnings("static-access")
+	private void sleepSend(Task task, Request request) {
         while (!task.isAwait() && !Thread.currentThread().interrupted()) {
             try {
                 Thread.sleep(1);
@@ -96,7 +97,8 @@ public class SocketManager {
 //    }
 
 
-    public String sendMsg(final Request request) {
+    @SuppressWarnings("rawtypes")
+	public String sendMsg(final Request request) {
         final String key = request.getKey();
         if (ctx != null && ctx.channel() != null && ctx.channel().isActive()) {
             final Task task = ConditionUtils.getInstance().createTask(key);

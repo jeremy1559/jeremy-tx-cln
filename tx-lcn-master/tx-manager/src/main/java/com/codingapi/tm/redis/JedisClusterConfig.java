@@ -38,7 +38,8 @@ public class JedisClusterConfig {
         return new JedisCluster(nodes, redisProperties.getCommandTimeout());
     }
 
-    @Bean
+    @SuppressWarnings("rawtypes")
+	@Bean
     public RedisTemplate redisTemplateFactory(){
         RedisTemplate redisTemplate =new RedisTemplate();
         redisTemplate.setConnectionFactory(jedisConnectionFactory());

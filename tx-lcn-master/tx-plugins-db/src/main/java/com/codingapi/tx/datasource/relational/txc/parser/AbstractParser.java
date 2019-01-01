@@ -14,13 +14,14 @@ import java.util.List;
 
 /**
  * @author jsy.
- * @title
- * @time 17/12/11.
+ * 
+ *  17/12/11.
  */
 
 public abstract class AbstractParser<T>{
 
-    public CommitInfo parse(TxcStatement txcStatement) throws SQLException {
+    @SuppressWarnings("unchecked")
+	public CommitInfo parse(TxcStatement txcStatement) throws SQLException {
         CommitInfo commitInfo = new CommitInfo();
 
         String sql = txcStatement.getSql();

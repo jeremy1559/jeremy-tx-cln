@@ -13,8 +13,8 @@ import java.util.List;
 
 /**
  * @author jsy.
- * @title
- * @time 17/12/11.
+ * 
+ *  17/12/11.
  */
 public class UpdateParser extends AbstractParser<SQLUpdateStatement> {
     private static final Logger logger = LoggerFactory.getLogger(UpdateParser.class);
@@ -33,7 +33,8 @@ public class UpdateParser extends AbstractParser<SQLUpdateStatement> {
         return instance;
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     protected List<Object> getWhereParams(List<Object> sqlParamsList, SQLUpdateStatement parseSqlStatement) {
         if (CollectionUtils.isNotEmpty(sqlParamsList)) {
             int size = 0;

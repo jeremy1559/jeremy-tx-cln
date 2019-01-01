@@ -9,7 +9,10 @@ import com.lorne.core.framework.model.JsonModel;
  */
 public class TxInfo extends JsonModel {
 
-    /**
+   
+	private static final long serialVersionUID = -4533608946866345900L;
+
+	/**
      * 任务唯一标示
      */
     private String kid;

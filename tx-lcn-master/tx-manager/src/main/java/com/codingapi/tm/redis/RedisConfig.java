@@ -26,7 +26,8 @@ public class RedisConfig {
         return config;
     }
 
-    @Bean
+    @SuppressWarnings("deprecation")
+	@Bean
     @ConfigurationProperties(prefix = "spring.redis")
     public JedisConnectionFactory getConnectionFactory() {
         JedisConnectionFactory factory = new JedisConnectionFactory();
